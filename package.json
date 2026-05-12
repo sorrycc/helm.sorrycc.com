@@ -4,10 +4,17 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev"
+    "dev": "wrangler dev",
+    "build": "bun run build:fonts && bun run build:css",
+    "build:fonts": "bun scripts/copy-fonts.mjs",
+    "build:css": "bunx @tailwindcss/cli -i src/styles.css -o public/styles.css --minify",
+    "deploy": "bun run build && wrangler deploy"
   },
   "devDependencies": {
+    "@fontsource/geist": "^5.2.8",
+    "@fontsource/geist-mono": "^5.2.7",
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0",
     "wrangler": "^4.86.0"
   }
 }
