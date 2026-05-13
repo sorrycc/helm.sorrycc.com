@@ -1,6 +1,6 @@
 # helmagent.dev
 
-Landing page for Helm — an always-on coding agent. Deployed as a Cloudflare Worker with static assets.
+Landing page for Helm — an always-on coding agent. Live at [helmagent.dev](https://helmagent.dev). Deployed as a Cloudflare Worker with static assets.
 
 ## Develop
 
