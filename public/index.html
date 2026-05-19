@@ -883,6 +883,10 @@ pong. running 3 background tasks in default.</pre>
     localStorage.setItem('helm-theme', root.classList.contains('dark') ? 'dark' : 'light');
   });
 
+  // Declared above the router so the bootstrap showRoute(...) call below can
+  // safely trigger renderChangelog() on first paint without hitting a TDZ.
+  let changelogRendered = false;
+
   // ---------- Router ----------
   const routes = document.querySelectorAll('[data-route]');
   function showRoute(path, hash) {
@@ -1159,7 +1163,6 @@ pong. running 3 background tasks in default.</pre>
     }).join('');
   }
 
-  let changelogRendered = false;
   async function renderChangelog() {
     if (changelogRendered) return;
     const body = document.getElementById('changelog-body');
